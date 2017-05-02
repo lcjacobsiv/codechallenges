@@ -118,10 +118,8 @@ int main() {
             cost += edge->cost;
         }
         if (cost >= max) max = cost;
-        cout << "Max: " << max << endl;
-        cout << "Cost: " << cost << endl;
-
     }
+
     cout << max;
 
     return 0;
@@ -142,7 +140,7 @@ Vector<Edge*> findAllPaths(string start, HashMap<string, Vector<Edge*>> map_edge
         if(visited.contains(edge->end)) continue;
         visited.add(edge->end);
         soFar.add(edge);
-        findBestPath(edge->end, map_edges, visited, end, vectOfSoFars, soFar);
+        findAllPaths(edge->end, map_edges, visited, end, vectOfSoFars, soFar);
     }
     return soFar;
 }
